@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_car_risk_register_tree" model="ir.ui.view">
+        <field name="name">car.risk.register.tree</field>
+        <field name="model">car.risk.register</field>
+        <field name="arch" type="xml">
+            <tree string="Risk Register" decoration-danger="risk_score &gt;= 16" decoration-warning="risk_score &gt;= 9 and risk_score &lt; 16">
+                <field name="name"/>
+                <field name="risk_category"/>
+                <field name="likelihood"/>
+                <field name="impact"/>
+                <field name="risk_score"/>
+                <field name="owner_id"/>
+                <field name="state" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_car_risk_register_form" model="ir.ui.view">
+        <field name="name">car.risk.register.form</field>
+        <field name="model">car.risk.register</field>
+        <field name="arch" type="xml">
+            <form string="Risk Register">
+                <header>
+                    <button name="action_set_assessed" type="object" string="Assess" class="oe_highlight" invisible="state != 'identified'"/>
+                    <button name="action_set_mitigating" type="object" string="Mitigate" invisible="state != 'assessed'"/>
+                    <button name="action_set_monitored" type="object" string="Monitor" invisible="state != 'mitigating'"/>
+                    <button name="action_set_closed" type="object" string="Close" class="oe_highlight" invisible="state != 'monitored'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="identified,assessed,mitigating,monitored,closed"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="risk_category"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group>
+                            <field name="likelihood"/>
+                            <field name="impact"/>
+                            <field name="risk_score"/>
+                        </group>
+                    </group>
+                    <group string="AI Mitigation Priority">
+                        <field name="ai_mitigation_priority" nolabel="1"/>
+                    </group>
+                    <group string="Mitigation Plan">
+                        <field name="mitigation_plan" nolabel="1"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_car_risk_register" model="ir.actions.act_window">
+        <field name="name">Risk Register</field>
+        <field name="res_model">car.risk.register</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new risk entry
+            </p>
+        </field>
+    </record>
+</odoo>

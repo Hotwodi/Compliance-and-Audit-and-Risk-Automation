@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_car_audit_engagement_user,car.audit.engagement.user,model_car_audit_engagement,base.group_user,1,1,1,1
+access_car_compliance_framework_user,car.compliance.framework.user,model_car_compliance_framework,base.group_user,1,1,1,1
+access_car_risk_register_user,car.risk.register.user,model_car_risk_register,base.group_user,1,1,1,1
+access_car_control_test_user,car.control.test.user,model_car_control_test,base.group_user,1,1,1,1
+access_car_policy_user,car.policy.user,model_car_policy,base.group_user,1,1,1,1

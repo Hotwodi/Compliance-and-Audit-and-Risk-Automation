@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_car_control_test_tree" model="ir.ui.view">
+        <field name="name">car.control.test.tree</field>
+        <field name="model">car.control.test</field>
+        <field name="arch" type="xml">
+            <tree string="Control Tests" decoration-success="result == 'pass'" decoration-danger="result == 'fail'" decoration-warning="result == 'exception'">
+                <field name="name"/>
+                <field name="control_id"/>
+                <field name="test_type"/>
+                <field name="sample_size"/>
+                <field name="passed"/>
+                <field name="failed"/>
+                <field name="test_date"/>
+                <field name="result" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_car_control_test_form" model="ir.ui.view">
+        <field name="name">car.control.test.form</field>
+        <field name="model">car.control.test</field>
+        <field name="arch" type="xml">
+            <form string="Control Test">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="control_id"/>
+                            <field name="test_type"/>
+                        </group>
+                        <group>
+                            <field name="test_date"/>
+                            <field name="result" widget="badge"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="sample_size"/>
+                            <field name="passed"/>
+                            <field name="failed"/>
+                        </group>
+                    </group>
+                    <group string="AI Automation Potential">
+                        <field name="ai_automation_potential" nolabel="1"/>
+                    </group>
+                    <group string="Notes">
+                        <field name="notes" nolabel="1"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_car_control_test" model="ir.actions.act_window">
+        <field name="name">Control Tests</field>
+        <field name="res_model">car.control.test</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new control test
+            </p>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_car_compliance_framework_tree" model="ir.ui.view">
+        <field name="name">car.compliance.framework.tree</field>
+        <field name="model">car.compliance.framework</field>
+        <field name="arch" type="xml">
+            <tree string="Compliance Frameworks">
+                <field name="name"/>
+                <field name="framework"/>
+                <field name="owner_id"/>
+                <field name="last_assessment"/>
+                <field name="next_assessment"/>
+                <field name="compliance_score" widget="percentage"/>
+                <field name="state" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_car_compliance_framework_form" model="ir.ui.view">
+        <field name="name">car.compliance.framework.form</field>
+        <field name="model">car.compliance.framework</field>
+        <field name="arch" type="xml">
+            <form string="Compliance Framework">
+                <header>
+                    <button name="action_set_compliant" type="object" string="Mark Compliant" class="oe_highlight" invisible="state == 'compliant'"/>
+                    <button name="action_set_partial" type="object" string="Mark Partial" invisible="state == 'partial'"/>
+                    <button name="action_set_non_compliant" type="object" string="Mark Non-Compliant" invisible="state == 'non_compliant'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="compliant,partial,non_compliant"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="framework"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group>
+                            <field name="last_assessment"/>
+                            <field name="next_assessment"/>
+                            <field name="compliance_score" widget="percentage"/>
+                        </group>
+                    </group>
+                    <group string="Description">
+                        <field name="description" nolabel="1"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_car_compliance_framework" model="ir.actions.act_window">
+        <field name="name">Compliance Frameworks</field>
+        <field name="res_model">car.compliance.framework</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new compliance framework
+            </p>
+        </field>
+    </record>
+</odoo>

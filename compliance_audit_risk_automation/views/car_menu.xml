@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_car_root"
+              name="Compliance &amp; Risk"
+              web_icon="compliance_audit_risk_automation,static/description/icon.png"
+              sequence="10"/>
+
+    <menuitem id="menu_car_audit_engagement"
+              name="Audit Engagements"
+              parent="menu_car_root"
+              action="action_car_audit_engagement"
+              sequence="10"/>
+
+    <menuitem id="menu_car_compliance_framework"
+              name="Compliance Frameworks"
+              parent="menu_car_root"
+              action="action_car_compliance_framework"
+              sequence="20"/>
+
+    <menuitem id="menu_car_risk_register"
+              name="Risk Register"
+              parent="menu_car_root"
+              action="action_car_risk_register"
+              sequence="30"/>
+
+    <menuitem id="menu_car_control_test"
+              name="Control Tests"
+              parent="menu_car_root"
+              action="action_car_control_test"
+              sequence="40"/>
+
+    <menuitem id="menu_car_policy"
+              name="Policies"
+              parent="menu_car_root"
+              action="action_car_policy"
+              sequence="50"/>
+</odoo>
