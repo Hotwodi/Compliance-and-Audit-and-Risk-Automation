@@ -5,7 +5,7 @@ from odoo import api, fields, models
 class CarComplianceFramework(models.Model):
     _name = 'car.compliance.framework'
     _description = 'Compliance Framework'
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'name'
 
     name = fields.Char(string='Name', required=True, tracking=True)

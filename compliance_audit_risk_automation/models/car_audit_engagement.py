@@ -5,7 +5,7 @@ from odoo import api, fields, models
 class CarAuditEngagement(models.Model):
     _name = 'car.audit.engagement'
     _description = 'Audit Engagement'
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'start_date desc'
 
     name = fields.Char(string='Reference', required=True, tracking=True)

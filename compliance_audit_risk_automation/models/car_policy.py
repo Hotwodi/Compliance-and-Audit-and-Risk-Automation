@@ -5,7 +5,7 @@ from odoo import api, fields, models
 class CarPolicy(models.Model):
     _name = 'car.policy'
     _description = 'Policy'
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'effective_date desc'
 
     name = fields.Char(string='Policy Name', required=True, tracking=True)

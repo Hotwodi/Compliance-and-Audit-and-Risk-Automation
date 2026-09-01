@@ -5,7 +5,7 @@ from odoo import api, fields, models
 class CarControlTest(models.Model):
     _name = 'car.control.test'
     _description = 'Control Test'
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'test_date desc'
 
     name = fields.Char(string='Test Name', required=True, tracking=True)

@@ -5,7 +5,7 @@ from odoo import api, fields, models
 class CarRiskRegister(models.Model):
     _name = 'car.risk.register'
     _description = 'Risk Register'
-    _inherit = ['mail.thread']
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'risk_score desc'
 
     name = fields.Char(string='Risk Title', required=True, tracking=True)
