@@ -2,6 +2,7 @@
 {
     'name': 'Compliance, Audit & Risk Automation',
     'version': '18.0.1.0.0',
+    'images': ['static/description/cover.png'],
     'summary': 'AI-powered compliance, audit, and risk management automation',
     'description': """
 Compliance, Audit & Risk Automation
