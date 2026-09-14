@@ -14,7 +14,7 @@ control testing, and policy management with AI-assisted insights.
     'website': 'https://softaidev.pages.dev',
     'category': 'Productivity/AI',
     'license': 'LGPL-3',
-    'price': 900.00,
+    'price': 899.99,
     'currency': 'USD',
     'application': True,
     'installable': True,
